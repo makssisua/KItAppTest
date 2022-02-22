@@ -1,7 +1,21 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {hotels} from './Api/hotelApi'
+import { useState } from "react";
+import { Rooms } from "./Rooms";
 
-export const Hotel = () => {
+export const Hotels = ({currentUser}) => {
+  const [currentHotel, setCurrentHotel] = useState(null);
+
+  if (currentHotel !== null) {
+    return (
+      <Rooms
+        currentHotel={currentHotel}
+        setCurrentHotel={setCurrentHotel}
+        currentUser={currentUser}
+      />
+    )
+  }
+
   return(
     <View style={styles.hotelPage}>
       <Text style={styles.title}>Лучшие отели!</Text>
@@ -9,7 +23,7 @@ export const Hotel = () => {
         <FlatList
           data={hotels}
           renderItem={({ item }) => (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {setCurrentHotel(item)}}>
               <View style={styles.item}>
                 <Text style={styles.itemName}>{item.name}</Text>
                 <Text>{item.title}</Text>
@@ -30,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    paddingTop: '10%',
+    paddingTop: '5%',
     paddingBottom: '10%',
     paddingHorizontal: 20,
   },
