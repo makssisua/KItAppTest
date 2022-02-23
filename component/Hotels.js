@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import {hotels} from './Api/hotelApi'
+import { hotels } from './Api/hotelApi'
 import { useState } from "react";
 import { Rooms } from "./Rooms";
 

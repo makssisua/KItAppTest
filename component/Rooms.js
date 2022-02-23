@@ -17,7 +17,7 @@ export const Rooms = ({currentHotel, setCurrentHotel, currentUser}) => {
 
   return(
       <View style={styles.hotelPage}>
-        <View style={styles.exitButton}>
+        <View style={styles.prevPageButton}>
           <Button
             onPress={() => setCurrentHotel(null)}
             title="Назад"
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: "#4169E1",
   },
-  exitButton: {
+  prevPageButton: {
     alignSelf: "flex-start",
     width: 70,
     height: 40,
